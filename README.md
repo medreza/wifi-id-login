@@ -16,19 +16,20 @@ This module is just a Python interface for @wifi.id login, **not a kind of hack/
   ```
 
 * #### Define your login params
-  ##### Get the params from @wifi.id login page URL which usually starts with [https://welcome2.wifi.id/login/...](#)
+  ##### Define @wifi.id client (your device) IP address
   ```python
   my_ip = '<IP address of your connected device/interface to @wifi.id>'
-
+  ```
+  ##### Define the params manually from @wifi.id login URL (which usually starts with [https://welcome2.wifi.id/login/...](#))
+  ```python
   gw_id = '<@wifi.id gateway ID>'
   mac = '<your device/interface MAC address>'
   wlan = '<@wifi.id WLAN ID>'
   redirect = '<redirect URL>'
   ```
 
-  ##### or you can extract them by passing the login page URL to ```get_login_params_from_url(url)```
+  ##### or you can simply extract them by passing the login page URL to ```get_login_params_from_url(url)```
   ```python
-  my_ip = '<IP address of your connected device/interface to @wifi.id>'
 
   login_page_url = 'https://welcome2.wifi.id/login/....'
   gw_id, mac, wlan, redirect = wifi.get_login_params_from_url(login_page_url)
