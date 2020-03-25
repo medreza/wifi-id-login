@@ -2,9 +2,9 @@
 The @wifi.id has been a lifesaver for the past 7 years of my life. But sometimes, it asks for login too many. If you're lucky, you get asked one login each day. If not, you can get four to five in a day. Wouldn't it be easier if this repetitive task can be automated?
 
 ## Disclaimer
-This module is just a Python interface for @wifi.id login, **not a kind of hack tool** or something like that. You need a valid and legal @wifi.id account to use this.
+This module is just a Python interface for @wifi.id login, **not a kind of hack/bypass tool** or something like that. You need a valid and legal @wifi.id account to use this.
 
-*Program ini merupakan antarmuka Python untuk mengotomasikan proses login ke @wifi.id, **bukan hack tool** atau semacamnya. Anda tetap harus memiliki akun @wifi.id yang didapatkan secara legal :)*
+*Program ini merupakan antarmuka Python untuk mengotomasikan proses login ke @wifi.id, **bukan hack/bypass tool** atau semacamnya. Anda tetap harus memiliki akun @wifi.id yang didapatkan secara legal :)*
 
 ## Usage
 * #### Import the module and define your credentials
