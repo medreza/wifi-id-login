@@ -6,7 +6,7 @@ import json
 def main():
     # Your @wifi.id username
     username = '<your username>'
-    
+
     # Your @wifi.id password
     password = '<your password>'
 
@@ -20,10 +20,10 @@ def main():
     mikrotik_wan_ip = json.loads(mikrotik_wan_ip[1:-1])['address']
     mikrotik_wan_ip = mikrotik_wan_ip.split('/')[0]
     mikrotik_connection.disconnect()
-    
+
     # IP address of your connected device/interface to @wifi.id
     client_ip = mikrotik_wan_ip
-    
+
     # Your @wifi.id login page link. It usually starts with https://welcome2.wifi.id/login/...
     login_page_url = '<https://welcome2.wifi.id/login/...>'
 
@@ -33,8 +33,10 @@ def main():
     # Login to @wifi.id
     got_response, msg = wifi.login(username, password, client_ip, gw_id, mac, wlan, redir)
 
-    print(got_response)
-    print(msg)
+    if got_response:
+        print("Server response: " + str(msg))
+    else:
+        print("Login failed. " + str(msg))
 
 if __name__ == "__main__":
     main()
