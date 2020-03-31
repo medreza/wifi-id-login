@@ -1,4 +1,4 @@
-import wifiid_login as wifi
+from wifiid_login import Wifi
 import routeros_api # https://github.com/socialwifi/RouterOS-api
 import json
 
@@ -27,11 +27,11 @@ def main():
     # Your @wifi.id login page link. It usually starts with https://welcome2.wifi.id/login/...
     login_page_url = '<https://welcome2.wifi.id/login/...>'
 
-    # Get login parameters from login page URL
-    gw_id, mac, wlan, redir = wifi.get_login_params_from_url(login_page_url)
+    # Create wifi_id object
+    wifi_id = Wifi(username, password, client_ip)
 
-    # Login to @wifi.id
-    got_response, msg = wifi.login(username, password, client_ip, gw_id, mac, wlan, redir)
+    # Login to @wifi.id with params from login URL
+    got_response, msg = wifi_id.login_with_url(login_page_url)
 
     if got_response:
         print("Server response: " + str(msg))
