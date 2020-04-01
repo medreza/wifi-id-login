@@ -7,37 +7,36 @@ This module is just a Python interface for @wifi.id login, **not a kind of hack/
 *Program ini merupakan antarmuka Python untuk mengotomasikan proses login ke @wifi.id, **bukan hack/bypass tool** atau semacamnya. Anda tetap harus memiliki akun @wifi.id yang didapatkan secara legal :)*
 
 ## Usage
-* #### Import the module and define your credentials
+* #### Import the module, define your credentials, and create wifi instance
   ```python
-  import wifiid_login as wifi
+  from wifiid_login import Wifi
 
   username = '<your @wifi.id username>'
   password = '<your @wifi.id password>'
+  my_ip = '<IP address of your connected device/interface to @wifi.id>'
+  
+  wifi_id = Wifi(username, password, my_ip)
   ```
 
-* #### Define your login params
-  ##### Define @wifi.id client (your device) IP address
-  ```python
-  my_ip = '<IP address of your connected device/interface to @wifi.id>'
-  ```
-  ##### Define the params manually from @wifi.id login URL (which usually starts with [https://welcome2.wifi.id/login/...](#))
+* #### Define your login params and login!
+  ##### Define the params manually from @wifi.id login URL (which usually starts with [https://welcome2.wifi.id/login/...](#)) ..
   ```python
   gw_id = '<@wifi.id gateway ID>'
   mac = '<your device/interface MAC address>'
   wlan = '<@wifi.id WLAN ID>'
   redirect = '<redirect URL>'
   ```
-
-  ##### or you can simply extract them by passing the login page URL to ```get_login_params_from_url(url)```
+  ##### .. and do login
   ```python
+  wifi_id.login(gw_id, mac, wlan, redirect)
+  ```
 
+* #### Alternatively, you can simply login by passing the login page URL to ```login_with_url(url)``` method
+  ```python
   login_page_url = 'https://welcome2.wifi.id/login/....'
-  gw_id, mac, wlan, redirect = wifi.get_login_params_from_url(login_page_url)
+  wifi_id.login_with_url(login_page_url)
   ```
-* #### ... and login!
-  ```python
-  wifi.login(username, password, my_ip, gw_id, mac, wlan, redirect)
-  ```
+
 
 ## License
 GNU GPLv3
