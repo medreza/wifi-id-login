@@ -27,11 +27,8 @@ class Wifi:
             response = requests.post(auth_url, data = credentials)
         except:
             return False, 'ERROR: Unable to reach URL: ' + str(auth_url)
-            response = None
-
-        # Check if response is as expected
-        if response:
-            try:
+        else:
+            try: # Check if response is as expected
                 return True, response.json()['message']
             except:
                 return True, 'ERROR: Wrong server response'
